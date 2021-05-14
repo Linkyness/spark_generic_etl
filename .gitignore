@@ -1,0 +1,11 @@
+/.idea/
+/*.iml
+/.gradle/
+/build/
+/deploy/*.retry
+/deploy/envs/*/developer.conf.yml
+/out/
+/.project
+/metastore_db/
+/spark-warehouse/
+*~

@@ -1,0 +1,3 @@
+artifacts {
+  archives file: file("${buildDir}/libs/${project.name}-${project.version}.jar"), name: "${project.name}", type: "jar"
+}

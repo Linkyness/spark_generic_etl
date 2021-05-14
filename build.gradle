@@ -1,0 +1,26 @@
+group 'com.github.linkyness'
+version "$version"
+
+apply plugin: 'scala'
+apply plugin: 'maven'
+
+apply from: 'gradle/distribution.gradle'
+
+repositories {
+  mavenCentral()
+  jcenter()
+}
+
+dependencies {
+  compileOnly "org.apache.spark:spark-sql_$scala_major:$spark_version"
+  compileOnly "org.scala-lang:scala-library:$scala_major.$scala_minor"
+
+  implementation "com.typesafe:config:$typesafe_version"
+  implementation "org.apache.spark:spark-sql-kafka-0-10_$scala_major:$spark_version"
+
+}
+
+jar {
+  zip64 = true
+  from configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+}
